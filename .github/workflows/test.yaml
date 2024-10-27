@@ -1,0 +1,42 @@
+name: Python Workflow with Pytube
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Show Python and Pip versions
+        run: |
+          python3 --version
+          pip3 --version
+
+      - name: Install Pytube
+        run: |
+          pip3 install pytube
+          pip3 install pytubefix
+
+      - name: Verify Pytube installation
+        run: pip3 freeze | grep 'pytube'
+
+      - name: Run test script
+        run: |
+          cd Tests
+          ./test.sh
+          cd ../
+        shell: bash
+        continue-on-error: false
+
+      - name: Check exit code
+        if: ${{ failure() }}
+        run: echo "There was an error with the script execution!"

@@ -1,0 +1,1 @@
+<iframe width="707" height="398" src="https://www.youtube.com/embed/gZx9yCbQg50" title="SSH config basics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
