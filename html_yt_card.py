@@ -6,11 +6,15 @@ import sys
 
 
 def print_html_code_for_youtube_card(URL: str, VIDEO_ID: str, TITLE: str, DURATION: str) -> None:
+    """
+    DURATION = total duration of the videoclip, in seconds
+    DO NOT format the DURATION!
+    """
     print(f"<!-- {TITLE} -->")
     print(f"<a href=\"{URL}\">")
     print(f"<picture>")
     print(f"\t<source media=\"(prefers-color-scheme: dark)\" srcset=\"https://ytcards.demolab.com/?id={VIDEO_ID}&title={TITLE.replace(' ', '+')}&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=2&width=250&border_radius=5&duration={DURATION}\">")
-    print(f"\t<img src=\"https://ytcards.demolab.com/?id={VIDEO_ID}&title={TITLE.replace(' ', '+')}&background_color=%23ffffff&title_color=%2324292f&stats_color=%2357606a&max_title_lines=2&width=250&border_radius=5&duration=9515\" alt=\"{TITLE}\" title=\"{TITLE}\">")
+    print(f"\t<img src=\"https://ytcards.demolab.com/?id={VIDEO_ID}&title={TITLE.replace(' ', '+')}&background_color=%23ffffff&title_color=%2324292f&stats_color=%2357606a&max_title_lines=2&width=250&border_radius=5&duration={DURATION}\" alt=\"{TITLE}\" title=\"{TITLE}\">")
     print("</picture>")
     print("</a>")
 
@@ -32,23 +36,8 @@ def autoget_youtube_video_info(URL: str) -> tuple[str, str, str]:
         title: str = yt.title
         duration: int = yt.length  # Duration in seconds
 
-        # Convert duration to a more readable format (D:HH:MM:SS)
-        # Calculate days, hours, minutes, and seconds
-        (days, remainder) = divmod(duration, 24*3600)   # 24*3600 seconds in a day
-        (hours, remainder) = divmod(remainder, 3600)    # 3600 seconds in an hour
-        (minutes, seconds) = divmod(remainder, 60)      # 60 seconds in a minute
-        
-        # Format duration as D:HH:MM:SS
-        if int(days) > 0:
-            duration_formatted = f"{days}:{hours:02}:{minutes:02}:{seconds:02}"
-        elif int(hours) > 0:
-            duration_formatted = f"{hours:02}:{minutes:02}:{seconds:02}"
-        elif int(minutes) > 0:
-            duration_formatted = f"{minutes:02}:{seconds:02}"
-        else:
-            duration_formatted = f"0:{seconds:02}"
 
-        return (video_id, title, duration_formatted)
+        return (video_id, title, duration)
     except Exception as e:
         print(f"[ERROR] Something went wrong while retrieving YouTube information!", file=sys.stderr)
         print(f"[ERROR] {e}", file=sys.stderr)
