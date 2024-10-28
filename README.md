@@ -122,14 +122,9 @@ relevant data regarding the clip, including:
 - Video ID
 - Title
 - Duration
+- > No play button tho...
 
 
-
-The generated code will render a YouTube clip that will include a thumbnail,
-containing a white arrow in red circle.
-The text of the URL will be rendered above the title, both being splittted by a line,
-and aligned to the left.
-The HTML/MD code will also include relevant comments.
 
 
 > A **default** version for <https://github.com/TrifanBogdan24/Customizable-EmbedYT-Card-Generator.git>
