@@ -28,6 +28,7 @@ This card comes with:
 ![img](Images/img-01.png)
 ![img](Images/img-02.png)
 ![img](Images/img-03.png)
+![img](Images/img-04.png)
 
 ## Why use it?
 
@@ -54,6 +55,10 @@ Clean, ready-to-use HTML that you can drop anywhere:
 </picture>
 </a>
 ```
+
+Rendered result:
+
+![img](Images/img-01.png)
 
 
 ## My Personal Motivation
